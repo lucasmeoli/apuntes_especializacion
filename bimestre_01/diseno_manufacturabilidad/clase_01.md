@@ -59,7 +59,7 @@ Printed Circuit Handbook (Clyde F coomb, Jr),
 ## ¿Que es un sistema embebido?
 - Equipos electronicos que incluyen profcesamiento de datos
 - A diferencia de una pc es que estos sistemas tiene una FUNCION ESPECIFICA
-- Pueden estar conentidos en otro equipo
+- Pueden estar conentidos en otro equipo. Es un sistema electronico contenido dentro de un equipo completoo
 - Siempre implica desarrollo simultaneo de SW y HW
 - La mayoria tiene como cerebro tienen un microcontrolador (SOC) Pero tambien el cerebro puede ser: 
     - DSP
@@ -67,34 +67,37 @@ Printed Circuit Handbook (Clyde F coomb, Jr),
     - Microprocesador
     - ASIC
 
-
-El diseño siempre se orienta a:
+## Diseño de un sistema embebido
+El diseñop generalmente se orienta a
 - Reducir su tamaño, costo y consumo.
 - Aumentar eficiencia, confiabilidad y re-usabilidad(para usar en distintos modulos).
 - Mejorar su desempeño
 - Asegurar determinismo: que se comporte siempre igual ante las mismas excitaciones
-- Asegurar su tiempo de respuesta, siempre deberia responder en el mismo tiempo
+- Asegurar su tiempo de respuesta: siempre deberia responder en el mismo tiempo
 - Atender la mayor cantidad de tareas posibles
 
 ## Requerimientos
-Sea cual sea la funcion siempre tiene que contar:
-- Conectividad de uso corriente
-- Interfaces de usuarios en uso corriente
+Sea cual sea la funcion del embebido siempre tiene que contar con:
+- Conectividad de uso corriente, usb, ethernet wifi, cosas comunes para el usuario. Muchas veces se tiene que agregar USB cuando con una uart ya hubiese sido suficiente
+- Interfaces de usuarios en uso corriente: display, pantalla touch, etc
 
 Para cumplir esos requerimientos es necesario contar con plataformas de rendimiento y recursos en crecimiento que permiten atender el incremento de procesamiento y asi poder atender a las nuevas conectividad y el usarios
 
-Potencia: consumo de energia y generacion de calor:
+## Potenica
+La potencia implica consumo de energia y generacion de calor.
+La potencia es la suma de la potencia estatica y la dinamica
 ![alt text](image-1.png)
 
 - La potencia estatica es proporcional a la tension, por eso se paso de TTL a 3.3 o a 2.7, bajan para bajar este componente
 - La potencia dinamica es proporcional a la frecuencia digitial (F) por el salto de tension digital al cuadrado (V), por eso cuando se sube la frecuencia aumenta la potencia pero los fabricantes van bajando las tensiones
+- La potencia = k*v + c*F*V² /2
 
-El calor viaja de la temperatura mas alta al mas bajo, por eso funciona el sistema de disipacion. En los semiconductores, tenemos componentes muy chicos con MUY poca capacidad de disipar calor, por eso  se lo ayuda para que el claor no se acumule en el componente
+El calor viaja de la temperatura mas alta al mas bajo, por eso funciona el sistema de disipacion. En los semiconductores, tenemos componentes muy chicos con MUY poca capacidad de disipar calor, por eso  se lo ayuda para que el calor no se acumule en el componente
 
-En cualquier diseño, hay que tener en cuenta, tension corriente y potencia por el calor. Los que generar mas calor son los componentes que conmutan mas rapido. Hoy en dias las herramientas hacen analisis de calor.
+En cualquier diseño, hay que tener en cuenta: tension corriente y potencia por el calor. Los que generar mas calor **son los componentes que conmutan mas rapido**. Hoy en dias las herramientas hacen analisis de calor.
 
 ## Calculo de resistencia electrica
-La tienen todos los material, es la resistencia que oponen al paso/flujo de electrones, la cuales se refleja en la constante de resisitividad y esos e ve afectada por la geometria del cuerpo
+La tienen todos los material, es la resistencia que oponen al paso/flujo de electrones, la cuales se refleja en la constante de resisitividad y eso se ve afectada por la geometria del cuerpo
 
 ![alt text](image-2.png)
 
