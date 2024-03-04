@@ -13,8 +13,8 @@ Printed Circuit Handbook (Clyde F coomb, Jr),
 ## Diseño para manufacturabilidad
 - Surgen varias metodologias para resaltar el diseño. DFX seria design for X, en este caso DFM diseño apra la manufacturabilidad
 - Diseñar las cosas para que alguien las puedas fabricar. Asi no solo el diseño es algo creativo sino que sea orientado par que alguien las pueda producir
-- Si hablamos de manufactura hablamos de costos, ya que es importante para el margen de venta, aunque a veces el precio del producto final es mucho mayor o no depende del costo sino por lo que offrece
-- El costo depende directamente del volumen, siempre mientras mas se hacen mas barato sale en proporcion. El costo es sensitivo al volumen. El volumen permite la sistematizacion y asi requirrir a maquinas y asi se reduce mucho el costo. Mientras mas personas o mas trabajo artesanal encarece el producto
+- Si hablamos de manufactura hablamos de costos, ya que es importante para el margen de venta, aunque a veces el precio del producto final es mucho mayor o no depende del costo sino por lo que ofrece
+- El costo depende directamente del volumen, siempre mientras mas se hacen mas barato sale en proporcion. **El costo es sensitivo al volumen**. El volumen permite la sistematizacion y asi requirrir a maquinas y asi se reduce mucho el costo. Mientras mas personas o mas trabajo artesanal encarece el producto
 - Al tener mquinas, ganas velocidad, reducis costo, ganas confiabilidad
 - La DFM casi siempre va a estar enfocar en reduccion de costos
 - Por ejemplo en la pandemia cambio mucho como la gente se movia y lo que hacia y eso hizo que se modificaran los costos por tema de los semi conductores
@@ -101,7 +101,8 @@ La tienen todos los material, es la resistencia que oponen al paso/flujo de elec
 
 ![alt text](image-2.png)
 
-Generalmente vamos a encontrar, cobre, estaño-plomo, plata, etc.
+Generalmente vamos a encontrar, cobre, estaño-plomo, plata, etc. Donde la mejor conductividad la tiene la plata en este caso pero se usa cobre por el precio.
+
 Osea que el estaño es mucho mas resistivo que el cobre. Pero igual te dicen de estañar las trazas/pistas para aumentar la conductividad, pero en realidad no es asi, osea si es verdad que al poner en paralelo se la resistencia es menore que la menor pero la relacion es 10 a 1, asi que es practicamente lo mismo. CONCLUSION: el estaños NO sirve para transoporte, solo sirve para unir.
 
 Muchas veces algunas estaños tienen plata, para mejorar la conductividad. Se usa poco por el precio.
@@ -111,29 +112,30 @@ Muchas veces algunas estaños tienen plata, para mejorar la conductividad. Se us
 
 Todo eso es a una temperatura y dimension estandar 
 
-Los calculos de ciorriente en un impreso, SIEMPRE hay que preguntar la temperatura porque como se ve en la tabla la RESISTIVIDAD cambia mucho con el aumento de la temperatura
+Los calculos de iorriente en un impreso, SIEMPRE hay que preguntar la temperatura porque como se ve en la tabla la RESISTIVIDAD cambia mucho con el aumento de la temperatura.
 
-Lo mismo se puede hacer para un CILINDRO conductor o vias
+Lo mismo se puede hacer para un CILINDRO conductor o vias. 
 
 ![alt text](image-4.png)
 
-Sirven para pasar corriente de una layer a otra
-La resistividad de las vias suele ser altas, por eso para altas potencias se suelen utilizar varias vias para la misma conexion para reducir la resistencia de la conexion
+Sirven para pasar corriente de una layer a otra. La resistividad de las vias suelen ser altas, pasamos de uOhm a mOhm. Por eso para altas potencias se suelen utilizar varias vias para la misma conexion para reducir la resistencia de la conexion.
 
 ### Generalmente en un circuito impreso
-En una layer se hacen trazas mayormente verticale sy en el otro horizontales, se hace eso para evitar la superposicion de pistas y asi reducir la cacpidad, la mejor forma de reducir es el cruce ortogonal.
+En una layer se hacen trazas mayormente verticale y en el otro horizontales, se hace eso para evitar la superposicion de pistas y asi reducir la capacidad, la mejor forma de reducir es el cruce ortogonal.
 
 ![alt text](image-5.png)
 
 Para un trazado standar, la capacitancia es 0.01pf, en principio no es tan perjudicial pero si son muchas puede ser algo a mitigar
-- Hay que evitar superoposicion para evitar el ACOPLAMIENTO
+- Hay que evitar superoposicion para evitar el ACOPLAMIENTO capacitivo
 - Cuando por las lineas/pistas circula alterna tiene comportamiento inductivo donde el factor mas importante es el largo, por eso deberia ser algo bastante corto y se recomineda hacer las pistas lo mas cortas posibles
-- Ese inductor la atenua la señal por eso hay que evitarlo. O lo "frena". El tema no es tanto la amplitud sino mas la fase porque eso puede generar un desfasaje, entonces por eso hay que mantener la impedancia controlada para tmantener la integridad de la señal. Por eso a nveces se agregan viboritas o longitudes "innecesarias" para evitar el desfasaje en cosas sincronicas. Por ejemplo buses de pc para que tengan todas las pistas las mimsa longitud asi todos los bits llegan al mismo tiempo
-- El ancho de la traza impacta pero esta dentrod e logaritmo asi que no importa mucho
+- Ese inductor la atenua la señal por eso hay que evitarlo. Se podria decir que "frena" la señal. El tema no es tanto la amplitud sino mas la fase porque eso puede generar un desfasaje, entonces por eso hay que mantener la impedancia controlada para mantener la integridad de la señal. Por eso a veces se agregan viboritas o longitudes "innecesarias" para evitar el desfasaje en cosas sincronicas. Por ejemplo buses de pc para que tengan todas las pistas las mimsa longitud asi todos los bits llegan al mismo tiempo
+- El ancho de la traza impacta pero esta dentro de logaritmo asi que no importa mucho
 
-- Para mitigar esta inductqanica parasita del trazado se usan planos de tierra, donde dependiendo la superpiosicion con el plano de tierra va a mitigar eso:
+- Para mitigar esta inductancia parasita del trazado se usan planos de tierra, donde dependiendo la superpiosicion con el plano de tierra va a mitigar eso:
 
 ![alt text](image-6.png)
+
+Como se puede ver, el ancho de superposicion esta dividiendo y por lo tanto eso ayuda a mitigar el efecto inductivo. Esto se debe a que la corriente fluye para un lado y en plano de tierra hacia otro.
 
 ### Temperatura que pueden gestionar los componentes
 - Es un gran problema ya que cada vez son mas chicos
@@ -147,25 +149,35 @@ Hay que ver la conductividad termica
 - El estaño-plomo tiene muy poca capacidad de sacar calor
 - Epoxy de las placas son horribles conductores
 - Por eso el calor se va a ir por las trazas, el cobre es de los mejores conductores de calor
-- El aluminio es la mitad de bueno en conducir el calor pero el costo es mucho mas barato
+- El aluminio es la mitad de bueno en conducir el calor pero el costo es mucho mas barato (el cobre tien 3.6 W/cmC°  y el aluminio tiene 1.8)
 
-### las placas que hagamos van a estar en contacto con el aire
+### Las placas que hagamos van a estar en contacto con el aire
 - Hay que saber como es la conveccion del aire en donde estamos. La conveccion natural es hacia arriba, osea el aire caliente va hacia arriba. en un gabinete va a empezar a dar vueltas
-- Generalmente lo mejores ponerlo en modo vertical por el lfujo de aire y sino en horizontal pero con los componentes del lado de arriba
+- Generalmente lo mejores ponerlo en modo vertical por el flujo de aire y sino en horizontal pero con los componentes del lado de arriba
 
 ### EMC - compatibilidad electromagnetica
+EMC: La compatibilidad Electromagnética es la capacidad de un producto para convivir en su entorno electromagnético determinado sin causar o sufrir degradación funcional o daños
+
+EMI: Interferencia Electromagnética, proceso por el cual la energía electromagnética perturbadora se transmite de dispositivo electrónico a otro por caminos, radiadas o conducidas o ambos
+
 - Los componentes no se van a comportar como ideales en el caso de frecuencias altas
-- Esas impedancias parasitas que dependen de la frecuencias puede generar caidas de tension
-- Es IMPOSIBLE predecir el cumplimiento pero si reducir el riestg
+- Esas impedancias parasitas que dependen de la frecuencias puede generar caidas de tension y corriente
+- Es IMPOSIBLE predecir el cumplimiento pero si reducir el riesgo mediante algunas tecnicas y reglas de diseño
 - Se busca disminuir la emision y endurecer el sistema electronico ante las señales electromagnetica
 - Puede ser radiada (por el aire) o conducida (a traves de un solido)
+- Los elementos en un modelo EMC son:
+    - fuente de ruido
+    - la victima
+    - ruta de acomplamiento
 - Hay que detectar la fuente y la victima del ruido.
-- Identificar la ruta de acooplamiento para poder atenuar
-- Modos de acopĺamiento:
-    - reactivo
-    - capacitivo
+- Identificar la ruta de acoplamiento para poder atenuar
+- Modos de acopĺamiento (caminos):
+    - Conducido: corriente electrica, vcc, GNDF, señales
+    - reactivo: inductivo (campo magnetico) (grandes corrientes) o capacitivo (campo electrico) (grandes tensiones)
+    - Radiado: campo electromagnetico
+- Para mejorar la calidad de diseño EMC hay que analizar el entorne EMC
 - Hay que prestarle atencion al pulso digital, ya que eso afecta el crecimiento y decrecimiento del pulso (esto no entendi mucho)
-- En RF esta el campo cercano, campo lejano y campo de transicion
+- En RF esta el campo cercano, campo lejano y campo de transicion. 
 
 ## Considerar detenidamente:
 - Metodologia de trabajo
@@ -183,13 +195,44 @@ Hay que ver la conductividad termica
 - Documentarse debidamente y saber filtrar/tamizar
 - Metodos de trabajo
 
-- Los sistemas embebidos son HERRAMIENTAS
+- Los sistemas embebidos son HERRAMIENTAS que permiten ofrecer soluciones a aplicaciones antes resueltas o no mediante el uso de otras tecnologias y tecnicas
 - Los circuitos cada vez son mas sofisticado 
 - Establecer campo de aplicacion, requerimientos: gestion de corriente, potencia, tension.
 
-## Normas
-- Vamos a usar las normas IPC, es la maxima autoridad en el diseño. No depende de ningun estado
-- son guias, estandares, referencias
-- Las normas tienen recomendaciones en rendimiento (normal es nivel 1) y en nivel de productividad (normal es nivel B)
+## Densidad de Interconexion
+- Assembly: dificutlar de ebnsamblar componentes
+- Component: grafo de sofisticacion de los componentes
+- Printed wiring board: densidad de cableado de la placa
 
-A las 19 arrancamos con el cuestionario y despues nos metemos en la presentacion. Es sobre esa presentacion hasta la pagina de 38
+Todo esto condiciona cosas como:
+- Material y cantidad de layers
+- Dimension de trazas/pistas
+- Distancias
+- Disposicion
+- entre otras cosas
+
+Para pasar de un diagrama esquemático a un circuito impreso confiable de simple fabricación, armado y prueba es preciso recurrir a normas técnicas de referencia. Esto se debe a que hay que tener en cuenta:
+- Consideraciones relativas a disposicion de componentes
+- EMC
+- formas y dimensiones de pistas
+
+
+## Normas
+- Vamos a usar las normas IEC e IPC, donde IPC (Association Connecting Electronic Industries) es la maxima autoridad en el diseño. No depende de ningun estado
+- La aplicación de normas del IPC garantiza el buen funcionamiento electrónico del producto final.
+- Son guias, estandares, referencias y te permiten entender conecper, minimiza tiempo, obtener excelencia en el prioducto final, generar metodos, mejora de diseños entre otras cosas.
+- Pra aplicar las normas es fundamental clasificar al producto. Las normas tienen clases en rendimiento (normal es nivel 1) y clase en nivel de productividad (normal es nivel B)
+
+
+## El proceso de diseño del PCB
+El objetivo del proceso de diseño de PCB es diseñar un PCB que:
+- Funcionen correctamente en todo el rango de variaciones de
+    - velocidades
+    - temperatura
+    - tension
+    - tolerancias
+- Producir toda la documentacionj y datos necesarios para
+    - fabricar
+    - ensamblar
+    - probar
+    - solucionar posibles problemas
