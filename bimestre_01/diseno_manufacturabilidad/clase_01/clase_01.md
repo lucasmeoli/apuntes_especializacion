@@ -86,6 +86,7 @@ Para cumplir esos requerimientos es necesario contar con plataformas de rendimie
 ## Potenica
 La potencia implica consumo de energia y generacion de calor.
 La potencia es la suma de la potencia estatica y la dinamica
+
 ![alt text](image-1.png)
 
 - La potencia estatica es proporcional a la tension, por eso se paso de TTL a 3.3 o a 2.7, bajan para bajar este componente
